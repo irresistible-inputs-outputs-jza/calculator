@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inaction Has a Steep Pricetag</title>
+    <title>Inaction Has a Steep Price Tag</title>
     <title>What does indecision really cost your business? Find out here.</title>
     <style>
         * {
@@ -402,8 +402,8 @@
 <body>
     <div class="calculator-container">
         <div class="header">
-            <h1>Inaction Has a Steep Pricetag</h1>
-            <p>Discover what delaying action is really costing your business</p>
+            <h1>Inaction Has a Steep Price Tag</h1>
+            <p>Discover what delaying action is really costing your business.</p>
         </div>
 
         <div class="content">
@@ -828,17 +828,63 @@
         }
 
         function handleEmailSubmit(e) {
-            e.preventDefault();
-            const email = document.getElementById('userEmail').value;
-            
-            // Here you would integrate with your email service
-            // For now, we'll just show an alert
-            alert(`Thank you! Your detailed report will be sent to ${email}`);
-            
-            // You can send this data to your backend
-            console.log('Form Data:', formData);
-            console.log('Email:', email);
-        }
+    e.preventDefault();
+    const email = document.getElementById('userEmail').value;
+    
+    // Prepare email content
+    const subject = 'Your Cost of Inaction Calculator Results';
+    const body = `
+Thank you for using our Cost of Inaction Calculator!
+
+YOUR RESULTS:
+=============
+
+Total Cost of Inaction: ${document.getElementById('totalCost').textContent} per year
+
+BREAKDOWN:
+- Lost Productivity: ${document.getElementById('productivityLoss').textContent}
+- Missed Revenue: ${document.getElementById('revenueLoss').textContent}
+- Market Advantage Loss: ${document.getElementById('marketLoss').textContent}
+- Frustration Cost: ${document.getElementById('frustrationCost').textContent}
+
+YOUR INPUTS:
+- Industry: ${formData.industry}
+- Business Size: ${formData.businessSize}
+- Annual Revenue: ${formData.revenue}
+- Primary Challenge: ${formData.challenge}
+- Time Delayed: ${formData.timeDelayed}
+- Team Size Affected: ${formData.teamSize}
+
+---
+Ready to address these costs? Schedule a consultation with us!
+https://appt.link/irresistible-revenue-pathway/discovery-call/
+
+`.trim();
+
+    // Open email client with pre-filled content
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Also send to your sales team
+    const salesEmail = 'jennifer@irresistible.io';
+    const salesMailto = `mailto:${salesEmail}?subject=${encodeURIComponent('New Calculator Lead: ' + email)}&body=${encodeURIComponent(body)}`;
+    
+    // Open mailto link
+    window.open(mailtoLink, '_blank');
+    
+    // Notify parent window
+    window.parent.postMessage({
+        type: 'calculator-submission',
+        email: email
+    }, '*');
+    
+    // Update UI
+    const submitBtn = document.getElementById('emailForm').querySelector('button');
+    submitBtn.textContent = '✓ Check Your Email!';
+    submitBtn.disabled = true;
+    submitBtn.style.background = '#4CAF50';
+    
+    alert('Your results are being prepared. Please check your email client!');
+}
 
         function resetCalculator() {
             currentStep = 1;
