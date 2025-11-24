@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inaction Has a Steep Price Tag</title>
-    <title>What does indecision really cost your business? Find out here.</title>
+    <title>Inaction Has a Steep Price Tag: Find out what delaying action is really costing your business.</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0c2242 0%, #0c2242 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
             min-height: 100vh;
         }
@@ -29,7 +28,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #3399cc 0%, #3399cc 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 40px 30px;
             text-align: center;
@@ -50,64 +49,6 @@
             padding: 40px 30px;
         }
 
-        .form-section {
-            display: block;
-        }
-
-        .form-section.hidden {
-            display: none;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-            font-size: 0.95rem;
-        }
-
-        .form-group select,
-        .form-group input[type="number"],
-        .form-group input[type="email"],
-        .form-group input[type="text"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-            background: white;
-        }
-
-        .form-group select:focus,
-        .form-group input:focus {
-            outline: none;
-            border-color: #ff9933;
-        }
-
-        .slider-container {
-            margin-top: 10px;
-        }
-
-        .slider-container input[type="range"] {
-            width: 100%;
-            height: 6px;
-            border-radius: 3px;
-            background: #e0e0e0;
-            outline: none;
-        }
-
-        .slider-value {
-            display: block;
-            margin-top: 8px;
-            font-weight: 600;
-            color: #99cc33;
-        }
-
         .progress-bar {
             height: 6px;
             background: #e0e0e0;
@@ -118,11 +59,123 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #99cc33 0%, #99cc33 100%);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.4s ease;
             border-radius: 3px;
+            width: 16.66%;
         }
 
+        .step-indicator {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(10px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .form-group select,
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: white;
+            cursor: pointer;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        .form-group select.error,
+        .form-group input.error {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .slider-container {
+            margin-top: 15px;
+        }
+
+        .slider-container input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e0e0e0;
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .slider-container input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .slider-value {
+            display: block;
+            margin-top: 10px;
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Buttons */
         .button-group {
             display: flex;
             gap: 15px;
@@ -131,17 +184,19 @@
 
         .btn {
             flex: 1;
-            padding: 14px 30px;
+            padding: 16px 30px;
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #0c2242 0%, #0c2242 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
 
@@ -152,17 +207,43 @@
 
         .btn-secondary {
             background: white;
-            color: #ff9933;
-            border: 2px solid #ff9933;
+            color: #667eea;
+            border: 2px solid #667eea;
         }
 
         .btn-secondary:hover {
             background: #f5f7ff;
         }
 
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading p {
+            color: #666;
+            font-size: 1.1rem;
         }
 
         /* Results Section */
@@ -173,11 +254,6 @@
         .results-section.active {
             display: block;
             animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .total-cost {
@@ -227,21 +303,10 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .metric-card.lost-market {
-            border-left-color: #ff6b6b;
-        }
-
-        .metric-card.missed-revenue {
-            border-left-color: #ffa726;
-        }
-
-        .metric-card.frustration {
-            border-left-color: #ab47bc;
-        }
-
-        .metric-card.productivity {
-            border-left-color: #42a5f5;
-        }
+        .metric-card.lost-market { border-left-color: #ff6b6b; }
+        .metric-card.missed-revenue { border-left-color: #ffa726; }
+        .metric-card.frustration { border-left-color: #ab47bc; }
+        .metric-card.productivity { border-left-color: #42a5f5; }
 
         .metric-card h3 {
             font-size: 0.9rem;
@@ -264,6 +329,75 @@
             line-height: 1.4;
         }
 
+        /* Email Capture */
+        .email-capture {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .email-capture h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .results-summary-box {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 250px;
+            overflow-y: auto;
+            color: #555;
+        }
+
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #5a6fd6;
+            transform: translateY(-2px);
+        }
+
+        .copy-btn.copied {
+            background: #4CAF50;
+        }
+
+        .mailto-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white !important;
+            padding: 14px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .mailto-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -291,111 +425,16 @@
 
         .cta-section .btn:hover {
             background: #f5f7ff;
-            transform: translateY(-2px);
         }
 
-        /* Loading Animation */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .loading.active {
-            display: block;
-        }
-
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .loading p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        /* Email Capture */
-        .email-capture {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            margin-top: 30px;
-        }
-
-        .email-capture h3 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .email-form input {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .email-form button {
-            padding: 12px 25px;
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.5rem;
-            }
-
-            .header p {
-                font-size: 1rem;
-            }
-
-            .content {
-                padding: 30px 20px;
-            }
-
-            .total-cost .amount {
-                font-size: 2.2rem;
-            }
-
-            .metrics-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .button-group {
-                flex-direction: column;
-            }
-
-            .email-form {
-                flex-direction: column;
-            }
-
-            .email-form input,
-            .email-form button {
-                width: 100%;
-            }
-        }
-
-        .step-indicator {
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            font-weight: 600;
+            .header h1 { font-size: 1.5rem; }
+            .header p { font-size: 1rem; }
+            .content { padding: 30px 20px; }
+            .total-cost .amount { font-size: 2.2rem; }
+            .metrics-grid { grid-template-columns: 1fr; }
+            .button-group { flex-direction: column; }
         }
     </style>
 </head>
@@ -403,7 +442,7 @@
     <div class="calculator-container">
         <div class="header">
             <h1>Inaction Has a Steep Price Tag</h1>
-            <p>Discover what delaying action is really costing your business.</p>
+            <p>Discover what delaying action is really costing your business</p>
         </div>
 
         <div class="content">
@@ -411,17 +450,16 @@
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-
             <div class="step-indicator" id="stepIndicator">Step 1 of 6</div>
 
-            <!-- Form Section -->
-            <form id="calculatorForm" class="form-section">
+            <!-- FORM CONTAINER -->
+            <div id="formContainer">
                 <!-- Step 1: Industry -->
-                <div class="form-step" id="step1">
+                <div class="form-step active" data-step="1">
                     <div class="form-group">
-                        <label for="industry">What industry are you in?</label>
-                        <select id="industry" required>
-                            <option value="">Select your industry</option>
+                        <label>What industry are you in?</label>
+                        <select id="industry">
+                            <option value="">-- Select your industry --</option>
                             <option value="technology">Technology/SaaS</option>
                             <option value="healthcare">Healthcare</option>
                             <option value="manufacturing">Manufacturing</option>
@@ -430,45 +468,59 @@
                             <option value="professional">Professional Services</option>
                             <option value="other">Other</option>
                         </select>
+                        <div class="error-message" id="error1">Please select your industry</div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-primary" onclick="goToStep(2)">Next →</button>
                     </div>
                 </div>
 
                 <!-- Step 2: Business Size -->
-                <div class="form-step hidden" id="step2">
+                <div class="form-step" data-step="2">
                     <div class="form-group">
-                        <label for="businessSize">What's your business size?</label>
-                        <select id="businessSize" required>
-                            <option value="">Select business size</option>
+                        <label>What's your business size?</label>
+                        <select id="businessSize">
+                            <option value="">-- Select business size --</option>
                             <option value="startup">Startup (1-10 employees)</option>
                             <option value="small">Small Business (11-50 employees)</option>
                             <option value="midmarket">Mid-Market (51-200 employees)</option>
                             <option value="enterprise">Enterprise (201-1000 employees)</option>
                             <option value="large">Large Enterprise (1000+ employees)</option>
                         </select>
+                        <div class="error-message" id="error2">Please select your business size</div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="goToStep(1)">← Back</button>
+                        <button type="button" class="btn btn-primary" onclick="goToStep(3)">Next →</button>
                     </div>
                 </div>
 
-                <!-- Step 3: Annual Revenue -->
-                <div class="form-step hidden" id="step3">
+                <!-- Step 3: Revenue -->
+                <div class="form-step" data-step="3">
                     <div class="form-group">
-                        <label for="revenue">What's your annual revenue?</label>
-                        <select id="revenue" required>
-                            <option value="">Select revenue range</option>
+                        <label>What's your annual revenue?</label>
+                        <select id="revenue">
+                            <option value="">-- Select revenue range --</option>
                             <option value="under1m">Under $1M</option>
                             <option value="1to5m">$1M - $5M</option>
                             <option value="5to20m">$5M - $20M</option>
                             <option value="20to100m">$20M - $100M</option>
                             <option value="over100m">$100M+</option>
                         </select>
+                        <div class="error-message" id="error3">Please select your revenue range</div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="goToStep(2)">← Back</button>
+                        <button type="button" class="btn btn-primary" onclick="goToStep(4)">Next →</button>
                     </div>
                 </div>
 
                 <!-- Step 4: Challenge -->
-                <div class="form-step hidden" id="step4">
+                <div class="form-step" data-step="4">
                     <div class="form-group">
-                        <label for="challenge">What's your primary challenge?</label>
-                        <select id="challenge" required>
-                            <option value="">Select your main challenge</option>
+                        <label>What's your primary challenge?</label>
+                        <select id="challenge">
+                            <option value="">-- Select your main challenge --</option>
                             <option value="inefficient">Inefficient processes</option>
                             <option value="outdated">Outdated technology</option>
                             <option value="customer">Poor customer experience</option>
@@ -477,49 +529,59 @@
                             <option value="competition">Competitive pressure</option>
                             <option value="scaling">Scaling difficulties</option>
                         </select>
+                        <div class="error-message" id="error4">Please select your primary challenge</div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="goToStep(3)">← Back</button>
+                        <button type="button" class="btn btn-primary" onclick="goToStep(5)">Next →</button>
                     </div>
                 </div>
 
                 <!-- Step 5: Time Delayed -->
-                <div class="form-step hidden" id="step5">
+                <div class="form-step" data-step="5">
                     <div class="form-group">
-                        <label for="timeDelayed">How long have you been dealing with this?</label>
-                        <select id="timeDelayed" required>
-                            <option value="">Select time period</option>
+                        <label>How long have you been dealing with this?</label>
+                        <select id="timeDelayed">
+                            <option value="">-- Select time period --</option>
                             <option value="1to3">1-3 months</option>
                             <option value="3to6">3-6 months</option>
                             <option value="6to12">6-12 months</option>
                             <option value="12to24">1-2 years</option>
                             <option value="over24">2+ years</option>
                         </select>
+                        <div class="error-message" id="error5">Please select how long you've had this issue</div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="goToStep(4)">← Back</button>
+                        <button type="button" class="btn btn-primary" onclick="goToStep(6)">Next →</button>
                     </div>
                 </div>
 
                 <!-- Step 6: Team Size -->
-                <div class="form-step hidden" id="step6">
+                <div class="form-step" data-step="6">
                     <div class="form-group">
-                        <label for="teamSize">How many employees are affected?</label>
-                        <input type="number" id="teamSize" min="1" max="10000" placeholder="e.g., 25" required>
+                        <label>How many employees are affected?</label>
+                        <input type="number" id="teamSize" min="1" max="10000" placeholder="Enter number of employees">
                         <div class="slider-container">
                             <input type="range" id="teamSizeSlider" min="1" max="500" value="25">
                             <span class="slider-value" id="sliderValue">25 employees</span>
                         </div>
+                        <div class="error-message" id="error6">Please enter the number of affected employees</div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="goToStep(5)">← Back</button>
+                        <button type="button" class="btn btn-primary" onclick="calculateResults()">Calculate My Cost →</button>
                     </div>
                 </div>
+            </div>
 
-                <div class="button-group">
-                    <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">Previous</button>
-                    <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
-                </div>
-            </form>
-
-            <!-- Loading Section -->
+            <!-- Loading -->
             <div class="loading" id="loading">
                 <div class="spinner"></div>
                 <p>Calculating your cost of inaction...</p>
             </div>
 
-            <!-- Results Section -->
+            <!-- Results -->
             <div class="results-section" id="results">
                 <div class="total-cost">
                     <h2>Your Total Cost of Inaction</h2>
@@ -533,19 +595,16 @@
                         <div class="value" id="marketLoss">$0</div>
                         <div class="description">Competitor gains and market share erosion</div>
                     </div>
-
                     <div class="metric-card missed-revenue">
                         <h3>Missed Revenue</h3>
                         <div class="value" id="revenueLoss">$0</div>
                         <div class="description">Unrealized sales and opportunities</div>
                     </div>
-
                     <div class="metric-card frustration">
                         <h3>Frustration Cost</h3>
                         <div class="value" id="frustrationCost">$0</div>
                         <div class="description">Employee turnover and morale impact</div>
                     </div>
-
                     <div class="metric-card productivity">
                         <h3>Lost Productivity</h3>
                         <div class="value" id="productivityLoss">$0</div>
@@ -554,34 +613,46 @@
                 </div>
 
                 <div class="email-capture">
-                    <h3>Get Your Detailed Report</h3>
-                    <p>Enter your email to receive a comprehensive breakdown and action plan.</p>
-                    <form class="email-form" id="emailForm">
-                        <input type="email" placeholder="your.email@company.com" id="userEmail" required>
-                        <button type="submit" class="btn btn-primary">Send Report</button>
-                    </form>
+                    <h3>📧 Save Your Results</h3>
+                    <p>Email yourself a copy or copy the text below:</p>
+                    <div id="emailLinkContainer"></div>
+                    <div class="results-summary-box" id="resultsSummary"></div>
+                    <button class="copy-btn" id="copyBtn" onclick="copyResults()">📋 Copy Results to Clipboard</button>
                 </div>
 
                 <div class="cta-section">
                     <h3>Ready to Stop the Loss?</h3>
                     <p>Schedule a free consultation to discuss how we can help you reclaim these costs.</p>
-                    <button class="btn" onclick="window.location.href='https://appt.link/irresistible-revenue-pathway/discovery-call/'"">Schedule Free Consultation</button>
+                    <a href="https://appt.link/irresistible-revenue-pathway/discovery-call/" target="_blank" class="btn">Schedule Free Consultation</a>
                 </div>
 
-                <div class="button-group">
-                    <button type="button" class="btn btn-secondary" onclick="resetCalculator()">Start Over</button>
+                <div class="button-group" style="margin-top: 30px;">
+                    <button type="button" class="btn btn-secondary" onclick="resetCalculator()">← Start Over</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Calculator Logic
+        // ============================================
+        // CONFIGURATION
+        // ============================================
+        const TOTAL_STEPS = 6;
         let currentStep = 1;
-        const totalSteps = 6;
-        const formData = {};
+        let formData = {};
+        let calculatedResults = {};
 
-        // Industry-specific multipliers
+        // Field IDs for each step
+        const stepFields = {
+            1: 'industry',
+            2: 'businessSize',
+            3: 'revenue',
+            4: 'challenge',
+            5: 'timeDelayed',
+            6: 'teamSize'
+        };
+
+        // Calculation data
         const industryMultipliers = {
             technology: { revenue: 0.08, productivity: 1.3, market: 1.5, frustration: 1.2 },
             healthcare: { revenue: 0.06, productivity: 1.1, market: 1.2, frustration: 1.4 },
@@ -592,7 +663,6 @@
             other: { revenue: 0.07, productivity: 1.2, market: 1.2, frustration: 1.2 }
         };
 
-        // Revenue mapping
         const revenueValues = {
             under1m: 500000,
             '1to5m': 3000000,
@@ -601,7 +671,6 @@
             over100m: 150000000
         };
 
-        // Time delay multipliers
         const timeMultipliers = {
             '1to3': 0.25,
             '3to6': 0.5,
@@ -610,7 +679,6 @@
             over24: 3.5
         };
 
-        // Business size multipliers
         const sizeMultipliers = {
             startup: 0.5,
             small: 0.8,
@@ -619,7 +687,6 @@
             large: 1.8
         };
 
-        // Average hourly cost by business size
         const hourlyCosts = {
             startup: 35,
             small: 45,
@@ -628,195 +695,240 @@
             large: 90
         };
 
-        // Initialize
+        const friendlyNames = {
+            industry: {
+                technology: 'Technology/SaaS',
+                healthcare: 'Healthcare',
+                manufacturing: 'Manufacturing',
+                retail: 'Retail/E-commerce',
+                financial: 'Financial Services',
+                professional: 'Professional Services',
+                other: 'Other'
+            },
+            businessSize: {
+                startup: 'Startup (1-10 employees)',
+                small: 'Small Business (11-50 employees)',
+                midmarket: 'Mid-Market (51-200 employees)',
+                enterprise: 'Enterprise (201-1000 employees)',
+                large: 'Large Enterprise (1000+ employees)'
+            },
+            revenue: {
+                under1m: 'Under $1M',
+                '1to5m': '$1M - $5M',
+                '5to20m': '$5M - $20M',
+                '20to100m': '$20M - $100M',
+                over100m: '$100M+'
+            },
+            challenge: {
+                inefficient: 'Inefficient processes',
+                outdated: 'Outdated technology',
+                customer: 'Poor customer experience',
+                automation: 'Lack of automation',
+                data: 'Data management issues',
+                competition: 'Competitive pressure',
+                scaling: 'Scaling difficulties'
+            },
+            timeDelayed: {
+                '1to3': '1-3 months',
+                '3to6': '3-6 months',
+                '6to12': '6-12 months',
+                '12to24': '1-2 years',
+                over24: '2+ years'
+            }
+        };
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
         document.addEventListener('DOMContentLoaded', function() {
-            updateProgress();
-            setupEventListeners();
-            syncSliderAndInput();
+            initSlider();
+            updateProgressBar();
         });
 
-        function setupEventListeners() {
-            document.getElementById('nextBtn').addEventListener('click', nextStep);
-            document.getElementById('prevBtn').addEventListener('click', prevStep);
-            document.getElementById('emailForm').addEventListener('submit', handleEmailSubmit);
-            
-            // Sync slider with input
-            document.getElementById('teamSizeSlider').addEventListener('input', function() {
-                document.getElementById('teamSize').value = this.value;
-                document.getElementById('sliderValue').textContent = this.value + ' employees';
-            });
-
-            document.getElementById('teamSize').addEventListener('input', function() {
-                const slider = document.getElementById('teamSizeSlider');
-                if (this.value >= slider.min && this.value <= slider.max) {
-                    slider.value = this.value;
-                    document.getElementById('sliderValue').textContent = this.value + ' employees';
-                }
-            });
-        }
-
-        function syncSliderAndInput() {
-            const teamSize = document.getElementById('teamSize');
+        function initSlider() {
             const slider = document.getElementById('teamSizeSlider');
-            const sliderValue = document.getElementById('sliderValue');
-            
-            teamSize.value = slider.value;
-            sliderValue.textContent = slider.value + ' employees';
-        }
+            const input = document.getElementById('teamSize');
+            const display = document.getElementById('sliderValue');
 
-        function nextStep() {
-            const currentStepEl = document.getElementById(`step${currentStep}`);
-            const inputs = currentStepEl.querySelectorAll('input, select');
-            
-            // Validate current step
-            let isValid = true;
-            inputs.forEach(input => {
-                if (!input.value) {
-                    isValid = false;
-                    input.style.borderColor = '#ff6b6b';
-                } else {
-                    input.style.borderColor = '#e0e0e0';
-                    formData[input.id] = input.value;
-                }
+            slider.addEventListener('input', function() {
+                input.value = this.value;
+                display.textContent = this.value + ' employees';
             });
 
-            if (!isValid) return;
+            input.addEventListener('input', function() {
+                let val = parseInt(this.value) || 1;
+                if (val < 1) val = 1;
+                if (val > 10000) val = 10000;
+                if (val <= 500) {
+                    slider.value = val;
+                }
+                display.textContent = val + ' employees';
+            });
+        }
 
-            if (currentStep < totalSteps) {
-                currentStepEl.classList.add('hidden');
-                currentStep++;
-                document.getElementById(`step${currentStep}`).classList.remove('hidden');
-                updateProgress();
-                updateButtons();
+        // ============================================
+        // NAVIGATION
+        // ============================================
+        function goToStep(targetStep) {
+            // If going forward, validate current step first
+            if (targetStep > currentStep) {
+                if (!validateStep(currentStep)) {
+                    return; // Stop if validation fails
+                }
+                // Save the current step's value
+                saveStepValue(currentStep);
+            }
+
+            // Hide current step
+            const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+            if (currentStepEl) {
+                currentStepEl.classList.remove('active');
+            }
+
+            // Show target step
+            currentStep = targetStep;
+            const targetStepEl = document.querySelector(`.form-step[data-step="${targetStep}"]`);
+            if (targetStepEl) {
+                targetStepEl.classList.add('active');
+            }
+
+            // Update progress
+            updateProgressBar();
+        }
+
+        function validateStep(step) {
+            const fieldId = stepFields[step];
+            const field = document.getElementById(fieldId);
+            const errorEl = document.getElementById('error' + step);
+            
+            let isValid = false;
+            
+            if (field.type === 'number') {
+                isValid = field.value && parseInt(field.value) > 0;
             } else {
-                // Calculate and show results
-                calculateResults();
+                isValid = field.value && field.value !== '';
+            }
+
+            if (!isValid) {
+                field.classList.add('error');
+                if (errorEl) errorEl.classList.add('show');
+                field.focus();
+                return false;
+            } else {
+                field.classList.remove('error');
+                if (errorEl) errorEl.classList.remove('show');
+                return true;
             }
         }
 
-        function prevStep() {
-            if (currentStep > 1) {
-                document.getElementById(`step${currentStep}`).classList.add('hidden');
-                currentStep--;
-                document.getElementById(`step${currentStep}`).classList.remove('hidden');
-                updateProgress();
-                updateButtons();
-            }
+        function saveStepValue(step) {
+            const fieldId = stepFields[step];
+            const field = document.getElementById(fieldId);
+            formData[fieldId] = field.value;
         }
 
-        function updateProgress() {
-            const progress = (currentStep / totalSteps) * 100;
+        function updateProgressBar() {
+            const progress = (currentStep / TOTAL_STEPS) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
-            document.getElementById('stepIndicator').textContent = `Step ${currentStep} of ${totalSteps}`;
+            document.getElementById('stepIndicator').textContent = `Step ${currentStep} of ${TOTAL_STEPS}`;
         }
 
-        function updateButtons() {
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-
-            if (currentStep === 1) {
-                prevBtn.style.display = 'none';
-            } else {
-                prevBtn.style.display = 'block';
-            }
-
-            if (currentStep === totalSteps) {
-                nextBtn.textContent = 'Calculate My Cost';
-            } else {
-                nextBtn.textContent = 'Next';
-            }
-        }
-
+        // ============================================
+        // CALCULATIONS
+        // ============================================
         function calculateResults() {
-            // Show loading
-            document.getElementById('calculatorForm').classList.add('hidden');
+            // Validate final step
+            if (!validateStep(6)) {
+                return;
+            }
+            saveStepValue(6);
+
+            // Hide form, show loading
+            document.getElementById('formContainer').style.display = 'none';
             document.getElementById('loading').classList.add('active');
 
-            // Simulate calculation delay
-            setTimeout(() => {
-                const industry = formData.industry;
-                const businessSize = formData.businessSize;
-                const revenue = revenueValues[formData.revenue];
-                const teamSize = parseInt(formData.teamSize);
-                const timeDelayed = formData.timeDelayed;
-
-                const industryMult = industryMultipliers[industry];
-                const sizeMult = sizeMultipliers[businessSize];
-                const timeMult = timeMultipliers[timeDelayed];
-                const hourlyCost = hourlyCosts[businessSize];
-
-                // Calculate Lost Productivity
-                const hoursWastedPerWeek = 8 * industryMult.productivity;
-                const totalHoursWasted = teamSize * hoursWastedPerWeek * 52;
-                const productivityLoss = totalHoursWasted * hourlyCost * sizeMult * timeMult;
-
-                // Calculate Missed Revenue
-                const revenueLoss = revenue * industryMult.revenue * timeMult * sizeMult;
-
-                // Calculate Market Advantage Loss
-                const marketLoss = revenue * 0.05 * industryMult.market * timeMult * sizeMult;
-
-                // Calculate Frustration Cost
-                const avgReplacementCost = hourlyCost * 2000; // Roughly annual salary
-                const turnoverRate = 0.15 * industryMult.frustration * timeMult;
-                const frustrationCost = teamSize * turnoverRate * avgReplacementCost;
-
-                // Total Cost
-                const totalCost = productivityLoss + revenueLoss + marketLoss + frustrationCost;
-
-                // Display results
-                displayResults({
-                    total: totalCost,
-                    productivity: productivityLoss,
-                    revenue: revenueLoss,
-                    market: marketLoss,
-                    frustration: frustrationCost,
-                    hours: totalHoursWasted
-                });
-
+            // Simulate calculation delay for UX
+            setTimeout(function() {
+                performCalculations();
+                
+                // Hide loading, show results
                 document.getElementById('loading').classList.remove('active');
                 document.getElementById('results').classList.add('active');
-            }, 2500);
+                
+                // Generate email section
+                generateEmailSection();
+            }, 2000);
         }
 
-        function displayResults(results) {
-            // Animate numbers
-            animateValue('totalCost', 0, results.total, 2000, true);
-            animateValue('productivityLoss', 0, results.productivity, 2000, true);
-            animateValue('revenueLoss', 0, results.revenue, 2000, true);
-            animateValue('marketLoss', 0, results.market, 2000, true);
-            animateValue('frustrationCost', 0, results.frustration, 2000, true);
+        function performCalculations() {
+            const industry = formData.industry;
+            const businessSize = formData.businessSize;
+            const revenue = revenueValues[formData.revenue];
+            const teamSize = parseInt(formData.teamSize);
+            const timeDelayed = formData.timeDelayed;
 
-            // Update productivity description with hours
+            const industryMult = industryMultipliers[industry];
+            const sizeMult = sizeMultipliers[businessSize];
+            const timeMult = timeMultipliers[timeDelayed];
+            const hourlyCost = hourlyCosts[businessSize];
+
+            // Lost Productivity
+            const hoursWastedPerWeek = 8 * industryMult.productivity;
+            const totalHoursWasted = teamSize * hoursWastedPerWeek * 52;
+            const productivityLoss = totalHoursWasted * hourlyCost * sizeMult * timeMult;
+
+            // Missed Revenue
+            const revenueLoss = revenue * industryMult.revenue * timeMult * sizeMult;
+
+            // Market Loss
+            const marketLoss = revenue * 0.05 * industryMult.market * timeMult * sizeMult;
+
+            // Frustration Cost
+            const avgReplacementCost = hourlyCost * 2000;
+            const turnoverRate = 0.15 * industryMult.frustration * timeMult;
+            const frustrationCost = teamSize * turnoverRate * avgReplacementCost;
+
+            // Total
+            const totalCost = productivityLoss + revenueLoss + marketLoss + frustrationCost;
+
+            // Store globally
+            calculatedResults = {
+                total: totalCost,
+                productivity: productivityLoss,
+                revenue: revenueLoss,
+                market: marketLoss,
+                frustration: frustrationCost,
+                hours: totalHoursWasted
+            };
+
+            // Animate the numbers
+            animateValue('totalCost', 0, totalCost, 2000, true);
+            animateValue('productivityLoss', 0, productivityLoss, 2000, true);
+            animateValue('revenueLoss', 0, revenueLoss, 2000, true);
+            animateValue('marketLoss', 0, marketLoss, 2000, true);
+            animateValue('frustrationCost', 0, frustrationCost, 2000, true);
+
             document.getElementById('productivityDesc').textContent = 
-                `${formatNumber(results.hours)} hours wasted annually`;
+                formatNumber(totalHoursWasted) + ' hours wasted annually';
         }
 
-        function animateValue(id, start, end, duration, isCurrency = false) {
+        function animateValue(id, start, end, duration, isCurrency) {
             const element = document.getElementById(id);
             const startTime = performance.now();
 
             function update(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                const current = start + (end - start) * easeOutQuart(progress);
-                
-                if (isCurrency) {
-                    element.textContent = formatCurrency(current);
-                } else {
-                    element.textContent = formatNumber(current);
-                }
+                const eased = 1 - Math.pow(1 - progress, 4); // easeOutQuart
+                const current = start + (end - start) * eased;
+
+                element.textContent = isCurrency ? formatCurrency(current) : formatNumber(current);
 
                 if (progress < 1) {
                     requestAnimationFrame(update);
                 }
             }
-
             requestAnimationFrame(update);
-        }
-
-        function easeOutQuart(x) {
-            return 1 - Math.pow(1 - x, 4);
         }
 
         function formatCurrency(value) {
@@ -827,87 +939,126 @@
             return Math.round(value).toLocaleString('en-US');
         }
 
-        function handleEmailSubmit(e) {
-    e.preventDefault();
-    const email = document.getElementById('userEmail').value;
-    
-    // Prepare email content
-    const subject = 'Your Cost of Inaction Calculator Results';
-    const body = `
-Thank you for using our Cost of Inaction Calculator!
+        // ============================================
+        // EMAIL / COPY FUNCTIONALITY
+        // ============================================
+        function generateEmailSection() {
+            const summary = generatePlainTextSummary();
+            document.getElementById('resultsSummary').textContent = summary;
 
-YOUR RESULTS:
-=============
+            const subject = encodeURIComponent('My Cost of Inaction Results - ' + formatCurrency(calculatedResults.total) + '/year');
+            const body = encodeURIComponent(summary);
+            const mailtoLink = 'mailto:?subject=' + subject + '&body=' + body;
 
-Total Cost of Inaction: ${document.getElementById('totalCost').textContent} per year
+            document.getElementById('emailLinkContainer').innerHTML = 
+                '<a href="' + mailtoLink + '" class="mailto-link" target="_blank">✉️ Email Results to Myself</a>' +
+                '<p style="margin-top:10px;font-size:0.85rem;color:#888;">Opens your email app with results pre-filled</p>';
+        }
+
+        function generatePlainTextSummary() {
+            return `
+COST OF INACTION CALCULATOR RESULTS
+====================================
+
+TOTAL COST: ${formatCurrency(calculatedResults.total)} per year
 
 BREAKDOWN:
-- Lost Productivity: ${document.getElementById('productivityLoss').textContent}
-- Missed Revenue: ${document.getElementById('revenueLoss').textContent}
-- Market Advantage Loss: ${document.getElementById('marketLoss').textContent}
-- Frustration Cost: ${document.getElementById('frustrationCost').textContent}
+- Lost Productivity: ${formatCurrency(calculatedResults.productivity)}
+  (${formatNumber(calculatedResults.hours)} hours wasted annually)
+- Missed Revenue: ${formatCurrency(calculatedResults.revenue)}
+- Lost Market Advantage: ${formatCurrency(calculatedResults.market)}
+- Frustration Cost: ${formatCurrency(calculatedResults.frustration)}
 
-YOUR INPUTS:
-- Industry: ${formData.industry}
-- Business Size: ${formData.businessSize}
-- Annual Revenue: ${formData.revenue}
-- Primary Challenge: ${formData.challenge}
-- Time Delayed: ${formData.timeDelayed}
-- Team Size Affected: ${formData.teamSize}
+YOUR PROFILE:
+- Industry: ${friendlyNames.industry[formData.industry] || formData.industry}
+- Business Size: ${friendlyNames.businessSize[formData.businessSize] || formData.businessSize}
+- Annual Revenue: ${friendlyNames.revenue[formData.revenue] || formData.revenue}
+- Primary Challenge: ${friendlyNames.challenge[formData.challenge] || formData.challenge}
+- Time Delayed: ${friendlyNames.timeDelayed[formData.timeDelayed] || formData.timeDelayed}
+- Team Size: ${formData.teamSize} employees
 
----
-Ready to address these costs? Schedule a consultation with us!
-https://appt.link/irresistible-revenue-pathway/discovery-call/
+====================================
+These costs compound over time.
+Ready to take action? Schedule a consultation!
+            `.trim();
+        }
 
-`.trim();
+        function copyResults() {
+            const summary = generatePlainTextSummary();
+            const btn = document.getElementById('copyBtn');
 
-    // Open email client with pre-filled content
-    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Also send to your sales team
-    const salesEmail = 'jennifer@irresistible.io';
-    const salesMailto = `mailto:${salesEmail}?subject=${encodeURIComponent('New Calculator Lead: ' + email)}&body=${encodeURIComponent(body)}`;
-    
-    // Open mailto link
-    window.open(mailtoLink, '_blank');
-    
-    // Notify parent window
-    window.parent.postMessage({
-        type: 'calculator-submission',
-        email: email
-    }, '*');
-    
-    // Update UI
-    const submitBtn = document.getElementById('emailForm').querySelector('button');
-    submitBtn.textContent = '✓ Check Your Email!';
-    submitBtn.disabled = true;
-    submitBtn.style.background = '#4CAF50';
-    
-    alert('Your results are being prepared. Please check your email client!');
-}
-
-        function resetCalculator() {
-            currentStep = 1;
-            Object.keys(formData).forEach(key => delete formData[key]);
-            
-            // Reset form
-            document.getElementById('calculatorForm').reset();
-            
-            // Hide all steps except first
-            for (let i = 1; i <= totalSteps; i++) {
-                if (i === 1) {
-                    document.getElementById(`step${i}`).classList.remove('hidden');
-                } else {
-                    document.getElementById(`step${i}`).classList.add('hidden');
-                }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(summary).then(function() {
+                    btn.textContent = '✓ Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(function() {
+                        btn.textContent = '📋 Copy Results to Clipboard';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                }).catch(function() {
+                    fallbackCopy(summary);
+                });
+            } else {
+                fallbackCopy(summary);
             }
-            
-            // Reset UI
+        }
+
+        function fallbackCopy(text) {
+            const btn = document.getElementById('copyBtn');
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                document.execCommand('copy');
+                btn.textContent = '✓ Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = '📋 Copy Results to Clipboard';
+                    btn.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                btn.textContent = '❌ Copy failed - select text manually';
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // ============================================
+        // RESET
+        // ============================================
+        function resetCalculator() {
+            // Reset data
+            currentStep = 1;
+            formData = {};
+            calculatedResults = {};
+
+            // Reset all form fields
+            document.getElementById('industry').value = '';
+            document.getElementById('businessSize').value = '';
+            document.getElementById('revenue').value = '';
+            document.getElementById('challenge').value = '';
+            document.getElementById('timeDelayed').value = '';
+            document.getElementById('teamSize').value = '';
+            document.getElementById('teamSizeSlider').value = 25;
+            document.getElementById('sliderValue').textContent = '25 employees';
+
+            // Clear errors
+            document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+
+            // Hide results, show form
             document.getElementById('results').classList.remove('active');
-            document.getElementById('calculatorForm').classList.remove('hidden');
-            updateProgress();
-            updateButtons();
-            syncSliderAndInput();
+            document.getElementById('formContainer').style.display = 'block';
+
+            // Reset steps - hide all, show first
+            document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+            document.querySelector('.form-step[data-step="1"]').classList.add('active');
+
+            // Reset progress
+            updateProgressBar();
         }
     </script>
 </body>
